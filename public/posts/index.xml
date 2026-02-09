@@ -15,7 +15,7 @@
       <guid>http://localhost:1313/posts/hello-world/</guid>
       <description>&lt;p&gt;这是我的第一个 AI 助手！&lt;/p&gt;
 &lt;h2 id=&#34;-请在下方尝试我的聊天助手&#34;&gt;⬇️ 请在下方尝试我的聊天助手&lt;/h2&gt;
-&lt;iframe src=&#34;https://github.com/Kie70&#34; height=&#34;600&#34; width=&#34;100%&#34; style=&#34;border:none;&#34;&gt;&lt;/iframe&gt;</description>
+&lt;iframe src=&#34;https://mychatbot-ngcgspggy8ukqhhfgcyem9.streamlit.app/?embed=true&#34; height=&#34;600&#34; width=&#34;100%&#34; style=&#34;border:none;&#34;&gt;&lt;/iframe&gt;</description>
     </item>
   </channel>
 </rss>
