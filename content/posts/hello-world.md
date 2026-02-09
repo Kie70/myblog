@@ -8,4 +8,4 @@ draft: false
 
 ## ⬇️ 请在下方尝试我的聊天助手
 
-<iframe src="https://github.com/Kie70" height="600" width="100%" style="border:none;"></iframe>
+<iframe src="https://pizza-bot-nwxt2oepduz82v8tdn7qky.streamlit.app/" height="600" width="100%" style="border:none;"></iframe>
