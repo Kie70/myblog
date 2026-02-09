@@ -1,0 +1,16 @@
+baseURL = "https://myblog.vercel.app/" # 上线后会自动替换
+languageCode = "zh-cn"
+title = "我的 AI 博客"
+theme = "PaperMod"
+
+[params]
+    defaultTheme = "auto"
+    ShowReadingTime = true
+    ShowShareButtons = true
+
+[menu]
+    [[menu.main]]
+        identifier = "search"
+        name = "🔍 搜索"
+        url = "/search/"
+        weight = 10
