@@ -14,3 +14,7 @@ theme = "PaperMod"
         name = "🔍 搜索"
         url = "/search/"
         weight = 10
+[markup]
+    [markup.goldmark]
+        [markup.goldmark.renderer]
+            unsafe = true  
