@@ -1,0 +1,9 @@
+# Hugo build output (Vercel builds this on deploy)
+/public/
+
+# Hugo build lock
+.hugo_build.lock
+
+# OS
+.DS_Store
+Thumbs.db
