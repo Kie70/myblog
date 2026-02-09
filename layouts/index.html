@@ -1,0 +1,26 @@
+{{- define "main" }}
+
+{{- /* 个人资料卡片 */ -}}
+{{- with site.Params.profileInfo }}
+<div class="profile-home">
+  <div class="profile-inner">
+    {{- with .avatarUrl }}
+    <img class="profile-avatar" draggable="false" src="{{ . | absURL }}"
+      alt="{{ $.Site.Params.profileInfo.name | default "avatar" }}" width="150" height="150" />
+    {{- end }}
+    <h1 class="profile-name">{{ .name | default site.Title }}</h1>
+    {{- with .subtitle }}
+    <p class="profile-subtitle">{{ . | markdownify }}</p>
+    {{- end }}
+    {{- partial "social_icons.html" -}}
+  </div>
+</div>
+{{- end }}
+
+<header class="page-header">
+  <h1>文章</h1>
+</header>
+
+{{- partial "archives_list.html" . }}
+
+{{- end }}{{/* end main */}}

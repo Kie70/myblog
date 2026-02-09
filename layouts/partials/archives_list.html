@@ -1,0 +1,50 @@
+{{- $pages := site.RegularPages }}
+
+{{- $monthNames := dict
+  "January"   "一月"
+  "February"  "二月"
+  "March"     "三月"
+  "April"     "四月"
+  "May"       "五月"
+  "June"      "六月"
+  "July"      "七月"
+  "August"    "八月"
+  "September" "九月"
+  "October"   "十月"
+  "November"  "十一月"
+  "December"  "十二月"
+}}
+
+{{- range $pages.GroupByDate "2006" }}
+{{- if ne .Key "0001" }}
+<section class="archive-year">
+  <h2 class="archive-year-header">
+    <strong>{{- .Key -}}</strong>
+    <sup class="archive-count">&nbsp;{{ len .Pages }}</sup>
+  </h2>
+
+  {{- range .Pages.GroupByDate "January" }}
+  <div class="archive-month">
+    <h3 class="archive-month-header">
+      {{- index $monthNames .Key -}}
+      <sup class="archive-count">&nbsp;{{ len .Pages }}</sup>
+    </h3>
+    <div class="archive-posts">
+      {{- range .Pages }}
+      <article class="archive-entry">
+        <h3 class="archive-entry-title">
+          {{- .Title | markdownify }}
+        </h3>
+        <div class="archive-meta">
+          {{- partial "post_meta.html" . -}}
+        </div>
+        <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+      </article>
+      {{- end }}
+    </div>
+  </div>
+  {{- end }}
+
+</section>
+{{- end }}
+{{- end }}

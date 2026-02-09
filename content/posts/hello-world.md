@@ -6,6 +6,6 @@ draft: false
 
 这是我的第一个 AI 助手！
 
-## ⬇️ 请在下方尝试我的聊天助手
+## ⬇请在下方尝试我的聊天助手
 
 <iframe src="https://mychatbot-ngcgspggy8ukqhhfgcyem9.streamlit.app/?embed=true" height="600" width="100%" style="border:none;"></iframe>

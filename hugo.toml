@@ -1,20 +1,81 @@
-baseURL = "https://myblog.vercel.app/" # 上线后会自动替换
+baseURL = "https://myblog.vercel.app/"
 languageCode = "zh-cn"
-title = "我的 AI 博客"
+title = "鱼肉的Blog"
 theme = "PaperMod"
+hasCJKLanguage = true
+
+[outputs]
+    home = ["HTML", "RSS", "JSON"]
 
 [params]
     defaultTheme = "auto"
     ShowReadingTime = true
     ShowShareButtons = true
+    ShowWordCount = true
+    DateFormat = "2006年1月2日"
+    author = "鱼肉"
+
+    # 首页个人资料卡片
+    [params.profileInfo]
+        name = "鱼肉"
+        subtitle = ""
+        avatarUrl = "/images/avatar.png"
+
+    # 社交媒体图标（name 必须与 PaperMod 内置图标名匹配）
+    [[params.socialIcons]]
+        name = "github"
+        url = "https://github.com/Kie70"
+        title = "GitHub"
+    [[params.socialIcons]]
+        name = "bilibili"
+        url = "https://space.bilibili.com/"
+        title = "Bilibili"
+    [[params.socialIcons]]
+        name = "x"
+        url = "https://x.com/"
+        title = "X"
+    [[params.socialIcons]]
+        name = "wechat"
+        url = "uginop"
+        title = "微信: 你的微信号"
+    [[params.socialIcons]]
+        name = "email"
+        url = "boyu.zhu25@outlook.com"
+        title = "邮箱"
+    [[params.socialIcons]]
+        name = "instagram"
+        url = "/index.xml"
+        title = "instagram"
+
+    [params.fuseOpts]
+        threshold = 0.3
+        ignoreLocation = true
+        distance = 100
+        limit = 15
 
 [menu]
     [[menu.main]]
+        identifier = "archives"
+        name = "文章"
+        url = "/archives/"
+        weight = 5
+    [[menu.main]]
+        identifier = "friends"
+        name = "朋友"
+        url = "/friends/"
+        weight = 7
+    [[menu.main]]
+        identifier = "about"
+        name = "关于"
+        url = "/about/"
+        weight = 8
+    [[menu.main]]
         identifier = "search"
-        name = "🔍 搜索"
+        name = "搜索"
         url = "/search/"
         weight = 10
+
 [markup]
     [markup.goldmark]
         [markup.goldmark.renderer]
-            unsafe = true  
+            unsafe = true

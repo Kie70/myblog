@@ -6,10 +6,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>我的 AI 博客</title>
+<title>鱼肉的Blog</title>
 
 <meta name="description" content="">
-<meta name="author" content="">
+<meta name="author" content="鱼肉">
 <link rel="canonical" href="http://localhost:1313/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.a29c24210eb31d9ce56f669c66a35c9c51b17376b7764e336a49af7dec914cf0.css" integrity="sha256-opwkIQ6zHZzlb2acZqNcnFGxc3a3dk4zakmvfeyRTPA=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
@@ -20,6 +20,7 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="rss">
+<link rel="alternate" type="application/json" href="http://localhost:1313/index.json" title="json">
 <link rel="alternate" hreflang="en" href="http://localhost:1313/">
 <noscript>
     <style>
@@ -72,13 +73,17 @@
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script>
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/custom.min.4c915e96a1c7f3e046a4fcb9ea97fe4c28e37ae54625796a5f4ad666ccf45829.css" integrity="sha256-TJFelqHH8&#43;BGpPy56pf&#43;TCjjeuVGJXlqX0rWZsz0WCk=">
+
 </head>
 <body class="list" id="top">
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="我的 AI 博客 (Alt + H)">我的 AI 博客</a>
+            <a href="http://localhost:1313/" accesskey="h" title="鱼肉的Blog (Alt + H)">鱼肉的Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -104,31 +109,126 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/search/" title="🔍 搜索">
-                    <span>🔍 搜索</span>
+                <a href="http://localhost:1313/archives/" title="文章">
+                    <span>文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/friends/" title="朋友">
+                    <span>朋友</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="关于">
+                    <span>关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="搜索 (Alt &#43; /)" accesskey=/>
+                    <span>搜索</span>
                 </a>
             </li>
         </ul>
     </nav>
 </header>
-<main class="main"> 
+<main class="main">
+<div class="profile-home">
+  <div class="profile-inner">
+    <img class="profile-avatar" draggable="false" src="http://localhost:1313/images/avatar.png"
+      alt="鱼肉" width="150" height="150" />
+    <h1 class="profile-name">鱼肉</h1><div class="social-icons" >
+    <a href="https://github.com/Kie70" target="_blank" rel="noopener noreferrer me"
+        title="GitHub">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+    </a>
+    <a href="https://space.bilibili.com/" target="_blank" rel="noopener noreferrer me"
+        title="Bilibili">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round">
+    <rect x="1.3333" y="6" width="21.333" height="15.333" rx="4" ry="4" />
+    <path d="m8 12.4v1.2" />
+    <path d="m16 12.4v1.2" />
+    <path d="m5.8853 2.6667 2.6667 2.6667" />
+    <path d="m18.115 2.6667-2.6667 2.6667" />
+</svg>
+    </a>
+    <a href="https://x.com/" target="_blank" rel="noopener noreferrer me"
+        title="X">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+    <path
+        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
+    </path>
+</svg>
+    </a>
+    <a href="uginop" target="_blank" rel="noopener noreferrer me"
+        title="微信: 你的微信号">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M17 10C20.3142 10 23 12.2165 23 14.95C23 16.4867 22.1513 17.8595 20.8182 18.767V21L18.6756 19.7042C18.1265 19.835 17.5642 19.9007 17 19.9C13.6858 19.9 11 17.6835 11 14.95C11 12.2165 13.6858 10 17 10Z" />
+    <path
+        d="M10.7657 15.5978C10.033 15.8089 9.24728 15.9231 8.43285 15.9231C7.4893 15.9251 6.55199 15.7679 5.65934 15.4578L3.12367 17V13.9835C1.81018 12.8183 1 11.2223 1 9.46154C1 5.89262 4.3278 3 8.43285 3C12.4487 3 15.7202 5.76769 15.8657 9.23V9.48092M9.49469 7.30769H9.50531M6.30918 7.30769H6.3198M14.8039 13.7692H14.8145M17.9894 13.7692H18" />
+</svg>
+    </a>
+    <a href="boyu.zhu25@outlook.com" target="_blank" rel="noopener noreferrer me"
+        title="邮箱">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 21" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+    </a>
+    <a href="/index.xml" target="_blank" rel="noopener noreferrer me"
+        title="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+</svg>
+    </a>
+</div>
+</div>
+</div>
 
-<article class="first-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">欢迎来到鱼肉的第一篇博客
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>这是我的第一个 AI 助手！
-⬇️ 请在下方尝试我的聊天助手 </p>
+<header class="page-header">
+  <h1>文章</h1>
+</header>
+<section class="archive-year">
+  <h2 class="archive-year-header">
+    <strong>2026</strong>
+    <sup class="archive-count">&nbsp;2</sup>
+  </h2>
+  <div class="archive-month">
+    <h3 class="archive-month-header">二月<sup class="archive-count">&nbsp;2</sup>
+    </h3>
+    <div class="archive-posts">
+      <article class="archive-entry">
+        <h3 class="archive-entry-title">推荐我使用的大模型
+        </h3>
+        <div class="archive-meta"><span title='2026-02-10 01:00:00 +0800 CST'>2026年2月10日</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;271 字&nbsp;·&nbsp;<span>鱼肉</span></div>
+        <a class="entry-link" aria-label="post link to 推荐我使用的大模型" href="http://localhost:1313/posts/learning-path/"></a>
+      </article>
+      <article class="archive-entry">
+        <h3 class="archive-entry-title">欢迎来到鱼肉的第一篇博客
+        </h3>
+        <div class="archive-meta"><span title='2026-02-09 10:00:00 +0800 CST'>2026年2月9日</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;25 字&nbsp;·&nbsp;<span>鱼肉</span></div>
+        <a class="entry-link" aria-label="post link to 欢迎来到鱼肉的第一篇博客" href="http://localhost:1313/posts/hello-world/"></a>
+      </article>
+    </div>
   </div>
-  <footer class="entry-footer"><span title='2026-02-09 10:00:00 +0800 CST'>February 9, 2026</span>&nbsp;·&nbsp;<span>1 min</span></footer>
-  <a class="entry-link" aria-label="post link to 欢迎来到鱼肉的第一篇博客" href="http://localhost:1313/posts/hello-world/"></a>
-</article>
+
+</section>
+
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="http://localhost:1313/">我的 AI 博客</a></span> · 
+        <span>&copy; 2026 <a href="http://localhost:1313/">鱼肉的Blog</a></span> · 
 
     <span>
         Powered by

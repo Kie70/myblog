@@ -1,21 +1,44 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>我的 AI 博客</title>
+    <title>鱼肉的Blog</title>
     <link>http://localhost:1313/</link>
-    <description>Recent content on 我的 AI 博客</description>
+    <description>Recent content on 鱼肉的Blog</description>
     <generator>Hugo -- 0.155.3</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 09 Feb 2026 10:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 10 Feb 2026 01:00:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>推荐我使用的大模型</title>
+      <link>http://localhost:1313/posts/learning-path/</link>
+      <pubDate>Tue, 10 Feb 2026 01:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/learning-path/</guid>
+      <description>&lt;h2 id=&#34;我觉得自己能做的就是推荐一点让我觉得最惊艳的ai产品&#34;&gt;我觉得自己能做的就是推荐一点让我觉得最惊艳的ai产品&lt;/h2&gt;
+&lt;h4 id=&#34;西交利物浦没法认证google的学生身份所以一年的免费gemini是没法用了只能买&#34;&gt;西交利物浦没法认证google的学生身份,所以一年的免费gemini是没法用了，只能买&lt;/h4&gt;
+&lt;p&gt;使用大模型强烈推荐直接上pro版本，我目前使用最多的是gemini3 pro，但是我最推荐claude的pro会员，20刀每月，因为它2月8日推出了最新模型，我使用下来聊天的感受最舒服，而且输出的文本可以很长&lt;/p&gt;</description>
+    </item>
     <item>
       <title>欢迎来到鱼肉的第一篇博客</title>
       <link>http://localhost:1313/posts/hello-world/</link>
       <pubDate>Mon, 09 Feb 2026 10:00:00 +0800</pubDate>
       <guid>http://localhost:1313/posts/hello-world/</guid>
       <description>&lt;p&gt;这是我的第一个 AI 助手！&lt;/p&gt;
-&lt;h2 id=&#34;-请在下方尝试我的聊天助手&#34;&gt;⬇️ 请在下方尝试我的聊天助手&lt;/h2&gt;
+&lt;h2 id=&#34;请在下方尝试我的聊天助手&#34;&gt;⬇请在下方尝试我的聊天助手&lt;/h2&gt;
 &lt;iframe src=&#34;https://mychatbot-ngcgspggy8ukqhhfgcyem9.streamlit.app/?embed=true&#34; height=&#34;600&#34; width=&#34;100%&#34; style=&#34;border:none;&#34;&gt;&lt;/iframe&gt;</description>
+    </item>
+    <item>
+      <title>关于我</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>好的让我们看文字</description>
+    </item>
+    <item>
+      <title>朋友</title>
+      <link>http://localhost:1313/friends/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/friends/</guid>
+      <description>友链与朋友们</description>
     </item>
   </channel>
 </rss>
