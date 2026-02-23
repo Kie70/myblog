@@ -1,0 +1,119 @@
+<div class="social-icons" {{ with .align}}align="{{.}}" {{- end }}>
+    {{- range site.Params.socialIcons }}
+    {{- if eq .name "wechat" }}
+    <a href="#" onclick="showWechatModal(); return false;" title="{{ (.title | default .name) | title }}">
+        {{ partial "svg.html" . }}
+    </a>
+    {{- else }}
+    <a href="{{ trim .url " " | safeURL }}" target="_blank" rel="noopener noreferrer me"
+        title="{{ (.title | default .name) | title }}">
+        {{ partial "svg.html" . }}
+    </a>
+    {{- end }}
+    {{- end }}
+</div>
+
+<!-- WeChat Modal -->
+<div id="wechatModal" class="contact-modal">
+    <div class="contact-modal-content wechat-modal-content">
+        <span class="contact-close" onclick="closeWechatModal()">&times;</span>
+        <h3>我的微信号</h3>
+        <img src="/images/我的微信号.jpg" alt="我的微信号" class="wechat-qrcode">
+        <p class="contact-hint">扫码添加微信或搜索：ugniop</p>
+    </div>
+</div>
+
+<script>
+function showWechatModal() {
+    document.getElementById('wechatModal').style.display = 'flex';
+}
+
+function closeWechatModal() {
+    document.getElementById('wechatModal').style.display = 'none';
+}
+
+// 点击模态框外部关闭
+window.onclick = function(event) {
+    var wechatModal = document.getElementById('wechatModal');
+    if (event.target == wechatModal) {
+        wechatModal.style.display = 'none';
+    }
+}
+</script>
+
+<style>
+.contact-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-modal-content {
+    background-color: var(--theme);
+    color: var(--primary);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    min-width: 280px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.contact-modal-content h3 {
+    margin: 0 0 15px 0;
+    font-size: 1.2em;
+}
+
+.contact-info {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--primary);
+    margin: 15px 0;
+    padding: 10px;
+    background-color: var(--entry);
+    border-radius: 8px;
+    font-family: monospace;
+    word-break: break-all;
+}
+
+.contact-hint {
+    margin: 15px 0 0 0;
+    font-size: 0.9em;
+    color: var(--secondary);
+}
+
+.contact-close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: var(--secondary);
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.contact-close:hover {
+    color: var(--primary);
+}
+
+.wechat-modal-content {
+    max-width: 350px;
+}
+
+.wechat-qrcode {
+    max-width: 250px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+</style>
