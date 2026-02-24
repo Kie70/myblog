@@ -27,31 +27,26 @@ hasCJKLanguage = true
         url = "https://github.com/Kie70"
         title = "GitHub"
     [[params.socialIcons]]
-        name = "bilibili"
-        url = "https://space.bilibili.com/"
-        title = "Bilibili"
-    [[params.socialIcons]]
-        name = "x"
-        url = "https://x.com/"
-        title = "X"
-    [[params.socialIcons]]
         name = "wechat"
-        url = "uginop"
-        title = "微信: 你的微信号"
+        url = "#"
+        title = "微信号: ugniop"
     [[params.socialIcons]]
         name = "email"
-        url = "boyu.zhu25@outlook.com"
+        url = "mailto:boyu.zhu25@outlook.com"
         title = "邮箱"
     [[params.socialIcons]]
-        name = "instagram"
-        url = "/index.xml"
-        title = "instagram"
+        name = "tiktok"
+        url = "https://v.douyin.com/b2ahSeLSz_w/"
+        title = "抖音"
 
     [params.fuseOpts]
         threshold = 0.3
         ignoreLocation = true
         distance = 100
-        limit = 15
+        limit = 10
+        keys = ["title", "summary", "content"]
+        minMatchCharLength = 2
+        findAllMatches = false
 
 [menu]
     [[menu.main]]
@@ -59,11 +54,6 @@ hasCJKLanguage = true
         name = "文章"
         url = "/archives/"
         weight = 5
-    [[menu.main]]
-        identifier = "friends"
-        name = "朋友"
-        url = "/friends/"
-        weight = 7
     [[menu.main]]
         identifier = "about"
         name = "关于"
