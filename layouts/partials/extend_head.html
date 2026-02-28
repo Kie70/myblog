@@ -3,6 +3,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+{{- /* Vercel Analytics */ -}}
+<script>
+    (function () {
+        const analytics = document.createElement('script');
+        analytics.src = '/_vercel/insights/script.js';
+        analytics.defer = true;
+        analytics.dataset.api = '/_vercel/insights/script.js';
+        document.head.appendChild(analytics);
+    })();
+</script>
+
 {{- /* Custom CSS */ -}}
 {{- $custom := resources.Get "css/custom.css" -}}
 {{- if $custom }}
