@@ -1,6 +1,6 @@
 ---
-title: "部署并学习GPT2模型"
-date: 2026-02-18T10:00:00+08:00
+title: "部署GPT2模型"
+date: 2026-03-17T10:00:00+08:00
 draft: false
 tags: ["深度学习", "大模型", "Hugging Face", "PyTorch"]
 categories: ["技术教程"]

@@ -1,6 +1,6 @@
 ---
-title: "复盘：利用AI 5小时入门MCM 2023 Wordle 建模"
-date: 2026-02-24T10:00:00+08:00
+title: "复盘：利用AI 完成MCM 2023 Wordle 数学建模美赛"
+date: 2026-04-25T10:00:00+08:00
 draft: false
 tags: ["数学建模", "MCM", "AI辅助编程", "Kaggle", "Wordle", "数据分析"]
 categories: ["项目经验"]
