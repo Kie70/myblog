@@ -1,6 +1,6 @@
 ---
-title: "利用Kaggle免费预训练minimind轻量化模型"
-date: 2026-02-23T10:00:00+08:00
+title: "利用Kaggle算力集群进行轻量化模型预训练"
+date: 2026-03-31T10:00:00+08:00
 draft: false
 tags: ["深度学习", "大模型", "Kaggle", "MiniMind", "GPU训练"]
 categories: ["技术分享"]
