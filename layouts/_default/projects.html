@@ -1,0 +1,21 @@
+{{- define "main" }}
+<section class="projects-page">
+  <header class="page-header">
+    <h1>{{ .Title }}</h1>
+  </header>
+  <div class="projects-list">
+    {{- range site.Data.projects }}
+    <a class="projects-card" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+      <div class="projects-card-image">
+        <img class="project-cover-img" src="{{ .image | relURL }}" alt="{{ .name }}" loading="lazy">
+      </div>
+      <div class="projects-card-content">
+        <h2 class="project-title">{{ .name }}</h2>
+        <p class="project-summary">{{ .description }}</p>
+        <span class="project-action">开始探索 &rarr;</span>
+      </div>
+    </a>
+    {{- end }}
+  </div>
+</section>
+{{- end }}

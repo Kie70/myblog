@@ -1,5 +1,5 @@
 {{- $.Scratch.Add "index" slice -}}
-{{- range site.RegularPages -}}
+{{- range (partial "article_pages.html" .) -}}
     {{- if and (not .Params.searchHidden) (ne .Layout `archives`) (ne .Layout `search`) (ne .Type `page`) }}
     {{- $.Scratch.Add "index" (dict "title" .Title "permalink" .Permalink) -}}
     {{- end }}

@@ -8,8 +8,9 @@ hasCJKLanguage = true
     home = ["HTML", "RSS", "JSON"]
 
 [params]
-    defaultTheme = "auto"
-    ShowReadingTime = true
+    mainSections = ["posts", "thinking"]
+    defaultTheme = "light"
+    ShowReadingTime = false
     ShowShareButtons = true
     ShowWordCount = true
     DateFormat = "2006年1月2日"
@@ -18,8 +19,10 @@ hasCJKLanguage = true
     # 首页个人资料卡片
     [params.profileInfo]
         name = "鱼肉"
-        subtitle = ""
-        avatarUrl = "/images/avatar.png"
+        headline = "Hi, 我是鱼肉"
+        subtitle = "全栈工程 · 大模型实战 · 数字创造者"
+        bio = "目前是西交利物浦大学的本科生，曾在猎豹移动担任产品经理实习生。在这里记录我的编程思考、技术实战以及正在构建的各类项目。热爱开源与前沿技术，平时喜欢折腾大语言模型实战应用、全栈工程与有趣的数字工具。"
+        avatarUrl = "/images/avatar-448.webp"
 
     # 社交媒体图标（name 必须与 PaperMod 内置图标名匹配）
     [[params.socialIcons]]
@@ -55,15 +58,15 @@ hasCJKLanguage = true
         url = "/archives/"
         weight = 5
     [[menu.main]]
+        identifier = "projects"
+        name = "项目"
+        url = "/projects/"
+        weight = 6
+    [[menu.main]]
         identifier = "about"
         name = "关于"
         url = "/about/"
         weight = 8
-    [[menu.main]]
-        identifier = "search"
-        name = "搜索"
-        url = "/search/"
-        weight = 10
 
 [markup]
     [markup.goldmark]

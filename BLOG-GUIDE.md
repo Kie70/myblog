@@ -2,7 +2,9 @@
 
 ## 博客内容存放位置
 
-所有博客文章统一放在 **`content/posts/`** 文件夹中。在此文件夹内创建的 Markdown 文件会自动出现在博客首页和文章列表中。
+文章保存在 **`content/posts/`**（技术与实战）和 **`content/thinking/`**（思考与记录）两个目录，原文和已有 URL 不需要移动。
+
+`params.mainSections` 明确列出这两个文章目录；`/archives/`、头像入口 `/profile/`、搜索索引和 RSS 使用同一文章集合。项目、关于等页面不进入文章集合。首页精选文章仍由首页模板人工选择。
 
 ## 新建博客的步骤
 
@@ -48,7 +50,7 @@ hugo server -D
 
 ## 推送到 GitHub 发布
 
-1. 将新文章保存到 `content/posts/` 并以 `.md` 结尾
+1. 将新文章保存到 `content/posts/` 或 `content/thinking/`，并以 `.md` 结尾
 2. 确认 front matter 中 `draft: false`
 3. 执行 Git 提交与推送：
 

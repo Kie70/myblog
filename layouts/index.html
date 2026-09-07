@@ -1,26 +1,90 @@
 {{- define "main" }}
 
-{{- /* 个人资料卡片 */ -}}
-{{- with site.Params.profileInfo }}
-<div class="profile-home">
-  <div class="profile-inner">
+<div class="home-wrapper">
+
+  {{- with site.Params.profileInfo }}
+  <!-- 1. Hero 个人信息区 (头像 224px，右侧姓名与社交图标) -->
+  <section class="hero-profile">
     {{- with .avatarUrl }}
-    <img class="profile-avatar" draggable="false" src="{{ . | absURL }}"
-      alt="{{ $.Site.Params.profileInfo.name | default "avatar" }}" width="150" height="150" />
+    <a class="profile-avatar-link" href="{{ "/profile/" | relLangURL }}" aria-label="查看鱼肉的全部文章" title="查看全部文章">
+      <img class="hero-avatar" src="{{ . | relURL }}" alt="{{ site.Params.profileInfo.name | default "avatar" }}" width="224" height="224" fetchpriority="high">
+    </a>
     {{- end }}
-    <h1 class="profile-name">{{ .name | default site.Title }}</h1>
-    {{- with .subtitle }}
-    <p class="profile-subtitle">{{ . | markdownify }}</p>
-    {{- end }}
-    {{- partial "social_icons.html" -}}
-  </div>
+    <div class="hero-meta">
+      <h1 class="hero-title">{{ strings.TrimSuffix .name (.headline | default .name) }}<span class="profile-shared-name">{{ .name }}</span></h1>
+      <div class="hero-socials">
+        {{- partial "social_icons.html" -}}
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. 自我介绍正文段落 (1:1 纯净现代排版) -->
+  <section class="bio-section">
+    <div class="bio-text">
+      <p>你好，我是鱼肉。目前是西交利物浦大学的本科生，曾在猎豹移动担任产品经理实习生。</p>
+      <p>如果用一句话来概括我做事的动力，大概是用自己的兴趣为他人创造实在的价值。</p>
+      <p>我很在意审美，也着迷于设计背后的逻辑。无论是体验一款软件的交互，还是打量一本书的装帧，我总会下意识去琢磨：用户究竟为什么会喜欢？细节到底来自哪里？</p>
+      <p>在探索方向的过程中，我曾以为自己会成为一名算法工程师，后来才发现，自己最享受的状态是站在逻辑与美感、技术与用户的交汇处。做产品，让我真正找到了能够长期倾注热情的地方。</p>
+      <p>在产品之外，我喜欢摄影和写作。对我来说，记录不仅是留存生活，更是为了把那些模糊的直觉与感受，沉淀成更加清晰、透彻的思考。</p>
+    </div>
+  </section>
+  {{- end }}
+
+  <!-- 3. 精选文章区块 (置于精选项目之前，缩进扩大一倍) -->
+  <section class="home-section">
+    <div class="section-header">
+      <h2 class="section-title">精选文章</h2>
+      <a href="{{ "/archives/" | relLangURL }}" class="section-link">进入文章归档 &rarr;</a>
+    </div>
+    <div class="post-list">
+      <a href="{{ "/posts/cheetah-ai-hackathon/" | relLangURL }}" class="post-card-item">
+        <span class="post-card-title">Cheetah AI 黑客松参赛总结与多智能体实战</span>
+        <span class="post-card-date">2026年2月</span>
+      </a>
+      <a href="{{ "/posts/kaggle-minimind-training/" | relLangURL }}" class="post-card-item">
+        <span class="post-card-title">从零开始训练一个轻量级大语言模型 (MiniMind)</span>
+        <span class="post-card-date">2026年1月</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 4. 精选项目区块 (图文卡片样式：左图右文，无背景底色) -->
+  <section class="home-section">
+    <div class="section-header">
+      <h2 class="section-title">精选项目</h2>
+      <a href="{{ "/projects/" | relLangURL }}" class="section-link">查看全部项目 &rarr;</a>
+    </div>
+    <div class="project-horizontal-list">
+      <!-- 项目 1: NarratoAI -->
+      <a href="https://github.com/linyqh/NarratoAI" target="_blank" rel="noopener" class="project-card-horizontal">
+        <div class="project-card-cover">
+          <img src="{{ "/images/narratoai.png" | relURL }}" alt="NarratoAI" class="project-cover-img" loading="lazy">
+        </div>
+        <div class="project-card-info">
+          <div class="project-brand">
+            <h3 class="project-title">NarratoAI</h3>
+          </div>
+          <p class="project-summary">利用 AI 大模型，一键生成影视解说文案并自动化剪辑视频、配音与字幕的全流程内容创作工具。</p>
+          <span class="project-action">开始探索 &rarr;</span>
+        </div>
+      </a>
+
+      <!-- 项目 2: 纸上有光 (Paper Light) -->
+      <a href="https://github.com/Kie70/paper-light-card-exhibition" target="_blank" rel="noopener" class="project-card-horizontal">
+        <div class="project-card-cover">
+          <img src="{{ "/images/paper-light.png" | relURL }}" alt="纸上有光 (Paper Light)" class="project-cover-img" loading="lazy">
+        </div>
+        <div class="project-card-info">
+          <div class="project-brand">
+            <h3 class="project-title">纸上有光</h3>
+          </div>
+          <p class="project-summary">面向设计初学者与创意开发者的微型参考博物馆：把抽象的“设计感”，还原为可观察、运行的真实比例、材质与纯 CSS 交互。</p>
+          <span class="project-action">开始探索 &rarr;</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
 </div>
-{{- end }}
-
-<header class="page-header">
-  <h1>文章</h1>
-</header>
-
-{{- partial "archives_list.html" . }}
 
 {{- end }}{{/* end main */}}

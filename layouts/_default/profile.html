@@ -1,0 +1,22 @@
+{{- define "main" }}
+<div class="profile-archive">
+  {{- with site.Params.profileInfo }}
+  <section class="profile-home" aria-label="鱼肉的个人资料">
+    <div class="profile-inner">
+      <a class="profile-avatar-link" href="{{ "/" | relLangURL }}" aria-label="返回首页" title="返回首页">
+        <img class="profile-avatar" src="{{ .avatarUrl | relURL }}" alt="{{ .name }}" width="150" height="150" fetchpriority="high">
+      </a>
+      <p class="profile-name"><span class="profile-shared-name">{{ .name }}</span></p>
+      <div class="profile-socials">
+        {{- partial "social_icons.html" -}}
+      </div>
+    </div>
+  </section>
+  {{- end }}
+  <header class="page-header profile-archive-header">
+    <h1>文章</h1>
+    <a class="section-link" href="{{ "/" | relLangURL }}">返回首页 &larr;</a>
+  </header>
+  {{- partial "archives_list.html" . }}
+</div>
+{{- end }}

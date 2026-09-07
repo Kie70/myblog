@@ -1,4 +1,4 @@
-{{- $pages := site.RegularPages }}
+{{- $pages := partial "article_pages.html" . }}
 
 {{- $monthNames := dict
   "January"   "一月"

@@ -146,3 +146,501 @@
   font-weight: 400;
   opacity: 0.85;
 }
+
+/* --- Modern Centered Homepage (Anthony Fu Style) --- */
+
+.home-wrapper {
+  font-family: var(--font-serif);
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 30px 20px 80px 20px;
+  box-sizing: border-box;
+}
+
+.hero-profile {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  margin-bottom: 48px;
+}
+
+.hero-avatar {
+  width: 224px;
+  height: 224px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.hero-meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  width: max-content;
+  max-width: 100%;
+}
+
+.hero-title {
+  font-size: clamp(32px, 4vw, 38px);
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0;
+  color: var(--primary);
+  font-family: var(--font-serif);
+  white-space: nowrap;
+}
+
+.hero-socials .social-icons {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  margin-top: 0;
+  justify-content: space-between;
+}
+.hero-socials .social-icons > a,
+.hero-socials .social-icons > .social-placeholder {
+  display: inline-flex;
+  padding: 0;
+  width: 22px;
+  height: 22px;
+}
+.hero-socials .social-icons svg {
+  width: 22px;
+  height: 22px;
+}
+
+body:has(.home-wrapper) .logo > a {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
+/* --- 纯色背景 (浅色纯白，深色纯黑) --- */
+body, .list {
+  background-color: var(--theme) !important;
+  background-image: none !important;
+}
+
+/* 个人介绍段落 (1:1 纯净现代排版与呼吸感间距) */
+.bio-section {
+  margin-bottom: 88px;
+}
+.bio-text {
+  font-family: var(--font-serif);
+  font-size: 15.5px;
+  line-height: 1.48;
+  color: var(--primary);
+  font-weight: 600;
+  letter-spacing: 0.015em;
+}
+.bio-text p {
+  margin: 0 0 9px 0;
+  font-weight: 600;
+  text-align: justify;
+}
+.bio-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* 模块通用样式 */
+.home-section {
+  margin-bottom: 38px;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--primary);
+  letter-spacing: 0.02em;
+}
+.section-link {
+  font-size: 13px;
+  color: var(--secondary);
+  text-decoration: none !important;
+  transition: color 0.2s ease;
+}
+.section-link:hover {
+  color: var(--primary);
+}
+
+/* 精选项目网格 (缩进扩大一倍：margin-left: 20px + padding: 18px = 38px) */
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-left: 20px;
+}
+@media (max-width: 640px) {
+  .hero-profile { flex-direction: column; text-align: center; gap: 20px; }
+  .feature-grid { grid-template-columns: 1fr; margin-left: 0; }
+}
+
+.project-card {
+  padding: 16px 18px;
+  border-radius: 8px;
+  /* 平时无底色、无边框，完全融入背景 */
+  border: 1px solid transparent;
+  background: transparent !important;
+  text-decoration: none !important;
+  display: block;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+/* 鼠标移上去后显示方块卡片样式 */
+.project-card:hover {
+  border-color: var(--border) !important;
+  background: var(--entry) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.project-name {
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0 0 6px 0;
+}
+.project-desc {
+  font-size: 13px;
+  color: var(--secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 精选文章列表 (缩进扩大一倍：margin-left: 20px + padding: 18px = 38px) */
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-left: 20px;
+}
+@media (max-width: 640px) {
+  .post-list { margin-left: 0; }
+}
+.post-card-item {
+  padding: 12px 18px;
+  border-radius: 8px;
+  /* 平时无底色、无边框，完全融入背景 */
+  border: 1px solid transparent;
+  background: transparent !important;
+  text-decoration: none !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+/* 鼠标移上去后显示方块卡片样式 */
+.post-card-item:hover {
+  border-color: var(--border) !important;
+  background: var(--entry) !important;
+  transform: translateX(4px);
+}
+.post-card-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--primary);
+  margin: 0;
+}
+.post-card-date {
+  font-size: 13px;
+  color: var(--secondary);
+  white-space: nowrap;
+  margin-left: 16px;
+}
+
+/* --- 独立项目页 --- */
+.projects-list {
+  display: grid;
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.projects-card {
+  display: grid;
+  grid-template-columns: minmax(0, 42%) minmax(0, 1fr);
+  align-items: center;
+  gap: 24px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: transparent;
+  text-decoration: none;
+  transition: border-color 0.2s ease;
+}
+
+.projects-card:hover,
+.projects-card:focus-visible {
+  background: transparent;
+  border-color: var(--secondary);
+}
+
+.projects-card:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+
+.projects-card-image {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.projects-card-content {
+  min-width: 0;
+  display: grid;
+  gap: 12px;
+}
+
+@media (max-width: 600px) {
+  .projects-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    padding: 16px;
+  }
+}
+
+/* --- 图文水平项目卡片 (左图右文卡片样式，无背景底色) --- */
+.project-horizontal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.project-card-horizontal {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 6px 18px;
+  margin-left: 20px;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 12px;
+  box-shadow: none;
+  text-decoration: none !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card-horizontal:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+
+@media (hover: hover) {
+  .project-card-horizontal:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.project-card-cover {
+  flex: 0 0 46%;
+  max-width: 46%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border);
+  background: transparent;
+}
+
+.project-cover-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.project-card-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+}
+
+.project-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.project-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.01em;
+  transition: color 0.2s ease;
+}
+
+.project-summary {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--secondary);
+}
+
+.project-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-top: 4px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+@media (max-width: 680px) {
+  .project-card-horizontal {
+    flex-direction: column;
+    gap: 18px;
+    padding: 12px 18px;
+  }
+  .project-card-cover {
+    flex: 0 0 100%;
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .project-card-horizontal {
+    margin-left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-wrapper .project-card-horizontal,
+  .home-wrapper .hero-avatar {
+    transition: none;
+    transform: none;
+  }
+}
+
+a[data-navigation-pending] {
+  cursor: progress;
+}
+
+a[data-navigation-pending]:not(.profile-avatar-link) {
+  opacity: 0.65;
+}
+
+.navigation-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Avatar-only route: real links and browser history, enhanced by shared snapshots. */
+.profile-avatar-link {
+  display: block;
+  flex-shrink: 0;
+  border-radius: 50%;
+  line-height: 0;
+}
+
+.profile-avatar-link:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 7px;
+}
+
+.profile-shared-name {
+  display: inline-block;
+}
+
+.profile-archive .profile-home {
+  padding: 30px 0 56px;
+}
+
+.profile-archive .profile-inner {
+  gap: 12px;
+}
+
+.profile-archive .profile-name {
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.profile-archive .profile-avatar {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.profile-socials .social-icons {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0;
+  margin-top: 4px;
+}
+
+.profile-socials .social-icons > a,
+.profile-socials .social-placeholder {
+  display: inline-flex;
+  padding: 0;
+  width: 22px;
+  height: 22px;
+}
+
+.profile-socials .social-icons svg {
+  width: 22px;
+  height: 22px;
+}
+
+.profile-archive-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+@media (max-width: 640px) {
+  .bio-section { margin-bottom: 72px; }
+  .profile-archive .profile-home { padding-bottom: 40px; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-avatar, .profile-archive .profile-avatar { view-transition-name: profile-avatar; }
+  .profile-shared-name { view-transition-name: profile-name; }
+  :is(.hero-socials, .profile-socials) .social-icons > :nth-child(1) { view-transition-name: profile-github; }
+  :is(.hero-socials, .profile-socials) .social-icons > :nth-child(2) { view-transition-name: profile-wechat; }
+  :is(.hero-socials, .profile-socials) .social-icons > :nth-child(3) { view-transition-name: profile-email; }
+  :is(.hero-socials, .profile-socials) .social-icons > :nth-child(4) { view-transition-name: profile-tiktok; }
+  :is(.hero-socials, .profile-socials) .social-icons > :nth-child(5) { view-transition-name: profile-xhs; }
+}
+
+::view-transition-group(*) {
+  animation-duration: 360ms;
+  animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 140ms;
+}
+
+/* Preserve glyph aspect ratio while the identical name moves and changes size. */
+::view-transition-old(profile-name),
+::view-transition-new(profile-name) {
+  width: 100%;
+  height: auto;
+}
+
+::view-transition-group(profile-avatar),
+::view-transition-image-pair(profile-avatar) {
+  border-radius: 50%;
+  overflow: clip;
+}

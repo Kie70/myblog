@@ -1,0 +1,2 @@
+{{- /* One article collection for archives, search, and feeds. */ -}}
+{{- return (where site.RegularPages "Section" "in" site.MainSections).ByDate.Reverse -}}
