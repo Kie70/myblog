@@ -164,6 +164,30 @@
   margin-bottom: 48px;
 }
 
+/* A small hand-drawn arrow makes the avatar's article link discoverable. */
+.hero-profile > .profile-avatar-link {
+  position: relative;
+}
+
+.avatar-click-arrow {
+  position: absolute;
+  top: -42px;
+  right: -38px;
+  width: 72px;
+  height: 88px;
+  color: var(--primary);
+  stroke: currentColor;
+  stroke-width: 2.1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+.avatar-arrow-sketch {
+  stroke-width: 0.85;
+  opacity: 0.4;
+}
+
 .hero-avatar {
   width: 224px;
   height: 224px;
