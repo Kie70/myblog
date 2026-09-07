@@ -6,12 +6,12 @@
   <!-- 1. Hero 个人信息区 (头像 224px，右侧姓名与社交图标) -->
   <section class="hero-profile">
     {{- with .avatarUrl }}
-    <a class="profile-avatar-link" href="{{ "/profile/" | relLangURL }}" aria-label="查看鱼肉的全部文章" title="查看全部文章">
+    <a class="profile-avatar-link" href="{{ "/profile/" | strings.TrimPrefix "/" | relLangURL }}" aria-label="查看鱼肉的全部文章" title="查看全部文章">
       <svg class="avatar-click-arrow" viewBox="0 0 90 108" fill="none" aria-hidden="true" focusable="false">
         <path d="M17 6 C43 9 66 27 65 49 C65 59 60 68 49 76 L70 74 C53 84 34 92 16 99 L23 48 L35 67 C47 45 47 26 17 6 Z" />
         <path class="avatar-arrow-sketch" d="M19 7 C46 11 68 29 66 50 C65 61 57 70 50 75 M69 76 C50 86 34 94 18 98 L24 51" />
       </svg>
-      <img class="hero-avatar" src="{{ . | relURL }}" alt="{{ site.Params.profileInfo.name | default "avatar" }}" width="224" height="224" fetchpriority="high">
+      <img class="hero-avatar" src="{{ . | strings.TrimPrefix "/" | relURL }}" alt="{{ site.Params.profileInfo.name | default "avatar" }}" width="224" height="224" fetchpriority="high">
     </a>
     {{- end }}
     <div class="hero-meta">
@@ -38,14 +38,14 @@
   <section class="home-section">
     <div class="section-header">
       <h2 class="section-title">精选文章</h2>
-      <a href="{{ "/archives/" | relLangURL }}" class="section-link">进入文章归档 &rarr;</a>
+      <a href="{{ "/archives/" | strings.TrimPrefix "/" | relLangURL }}" class="section-link">进入文章归档 &rarr;</a>
     </div>
     <div class="post-list">
-      <a href="{{ "/posts/cheetah-ai-hackathon/" | relLangURL }}" class="post-card-item">
+      <a href="{{ "/posts/cheetah-ai-hackathon/" | strings.TrimPrefix "/" | relLangURL }}" class="post-card-item">
         <span class="post-card-title">Cheetah AI 黑客松参赛总结与多智能体实战</span>
         <span class="post-card-date">2026年2月</span>
       </a>
-      <a href="{{ "/posts/kaggle-minimind-training/" | relLangURL }}" class="post-card-item">
+      <a href="{{ "/posts/kaggle-minimind-training/" | strings.TrimPrefix "/" | relLangURL }}" class="post-card-item">
         <span class="post-card-title">从零开始训练一个轻量级大语言模型 (MiniMind)</span>
         <span class="post-card-date">2026年1月</span>
       </a>
@@ -56,13 +56,13 @@
   <section class="home-section">
     <div class="section-header">
       <h2 class="section-title">精选项目</h2>
-      <a href="{{ "/projects/" | relLangURL }}" class="section-link">查看全部项目 &rarr;</a>
+      <a href="{{ "/projects/" | strings.TrimPrefix "/" | relLangURL }}" class="section-link">查看全部项目 &rarr;</a>
     </div>
     <div class="project-horizontal-list">
       <!-- 项目 1: NarratoAI -->
       <a href="https://github.com/linyqh/NarratoAI" target="_blank" rel="noopener" class="project-card-horizontal">
         <div class="project-card-cover">
-          <img src="{{ "/images/narratoai.png" | relURL }}" alt="NarratoAI" class="project-cover-img" loading="lazy">
+          <img src="{{ "/images/narratoai.png" | strings.TrimPrefix "/" | relURL }}" alt="NarratoAI" class="project-cover-img" loading="lazy">
         </div>
         <div class="project-card-info">
           <div class="project-brand">
@@ -76,7 +76,7 @@
       <!-- 项目 2: 纸上有光 (Paper Light) -->
       <a href="https://github.com/Kie70/paper-light-card-exhibition" target="_blank" rel="noopener" class="project-card-horizontal">
         <div class="project-card-cover">
-          <img src="{{ "/images/paper-light.png" | relURL }}" alt="纸上有光 (Paper Light)" class="project-cover-img" loading="lazy">
+          <img src="{{ "/images/paper-light.png" | strings.TrimPrefix "/" | relURL }}" alt="纸上有光 (Paper Light)" class="project-cover-img" loading="lazy">
         </div>
         <div class="project-card-info">
           <div class="project-brand">

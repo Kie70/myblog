@@ -1,11 +1,9 @@
-{{- /* Keep the existing serif stack visible while the optional web font loads. */ -}}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+{{- /* Local, unicode-range subsets: render fallback text immediately while fonts load. */ -}}
+{{- $fonts := (slice (resources.Get "css/fonts.css") (resources.Get "css/fonts-core.css") | resources.Concat "css/local-fonts.css") | resources.ExecuteAsTemplate "css/fonts.css" . | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $fonts.RelPermalink }}" integrity="{{ $fonts.Data.Integrity }}">
 
-{{- /* The analytics endpoint exists only in production, not on Hugo's server. */ -}}
-{{- if hugo.IsProduction }}
+{{- /* The analytics endpoint exists only on Vercel deployments. */ -}}
+{{- if and hugo.IsProduction site.Params.vercelAnalytics }}
 <script>
     (function () {
         const analytics = document.createElement('script');
@@ -19,7 +17,7 @@
 
 {{- if .IsHome }}
 {{- $homeNavigation := resources.Get "js/home-navigation.js" | minify | fingerprint }}
-<script defer src="{{ $homeNavigation.RelPermalink }}" integrity="{{ $homeNavigation.Data.Integrity }}" data-archive-url="{{ "/archives/" | relLangURL }}" data-profile-url="{{ "/profile/" | relLangURL }}"></script>
+<script defer src="{{ $homeNavigation.RelPermalink }}" integrity="{{ $homeNavigation.Data.Integrity }}" data-archive-url="{{ "/archives/" | strings.TrimPrefix "/" | relLangURL }}" data-profile-url="{{ "/profile/" | strings.TrimPrefix "/" | relLangURL }}" data-projects-url="{{ "/projects/" | strings.TrimPrefix "/" | relLangURL }}"></script>
 {{- end }}
 
 {{- /* Custom CSS */ -}}

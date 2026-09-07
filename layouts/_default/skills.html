@@ -1,0 +1,27 @@
+{{- define "main" }}
+<section class="skills-page">
+  <header class="page-header skills-header">
+    <h1>{{ .Title }}</h1>
+  </header>
+  <div class="skills-grid">
+    {{- range site.Data.skills }}
+    {{- if .url }}
+    <a class="skill-card skill-card-ready" href="{{ .url | strings.TrimPrefix "/" | relURL }}">
+    {{- else }}
+    <article class="skill-card">
+    {{- end }}
+      <div class="skill-card-cover">
+        <img src="{{ .image | strings.TrimPrefix "/" | relURL }}" alt="{{ .image_alt }}" width="640" height="420" loading="lazy" decoding="async">
+      </div>
+      <div class="skill-card-body">
+        <div class="skill-card-heading">
+          <h2>{{ .name }}</h2>
+          {{- if .url }}<span class="skill-link-arrow" aria-hidden="true">&nearr;</span>{{- end }}
+        </div>
+        <p class="skill-description">{{ .description }}</p>
+      </div>
+    {{- if .url }}</a>{{- else }}</article>{{- end }}
+    {{- end }}
+  </div>
+</section>
+{{- end }}

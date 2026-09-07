@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="420" viewBox="0 0 640 420" fill="none">
+  <title>从设计到建站</title>
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" stroke="#dcdcdc" stroke-width=".7"/></pattern>
+    <filter id="shadow" x="-25%" y="-25%" width="160%" height="170%"><feDropShadow dx="0" dy="14" stdDeviation="12" flood-color="#000" flood-opacity=".14"/></filter>
+  </defs>
+  <rect width="640" height="420" fill="#ededed"/>
+  <rect width="640" height="420" fill="url(#grid)"/>
+  <g transform="translate(65 104) rotate(-9 107 123)">
+    <rect width="214" height="246" rx="5" fill="#fff" stroke="#888" stroke-width="1.5"/>
+    <path d="M21 32h106M21 44h67" stroke="#303030" stroke-width="3" stroke-linecap="round"/>
+    <rect x="21" y="67" width="172" height="67" rx="2" stroke="#888" stroke-width="1.5" stroke-dasharray="5 5"/>
+    <path d="m25 130 49-52 39 37 25-25 50 40M21 158h172M21 172h149M21 186h161" stroke="#999" stroke-width="2" stroke-linecap="round"/>
+    <path d="m27 213-8 7 8 7m13-14 8 7-8 7m-5-17-5 20" stroke="#303030" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <path d="M153 77c22-28 58-28 87-9m-8-19 10 19-24 2" stroke="#222" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <g filter="url(#shadow)">
+    <rect x="246" y="77" width="327" height="257" rx="10" fill="#181818" stroke="#090909" stroke-width="2"/>
+    <path d="M247 112h325" stroke="#505050"/>
+    <circle cx="265" cy="95" r="3" fill="#f5f5f5"/><circle cx="278" cy="95" r="3" fill="#aaa"/><circle cx="291" cy="95" r="3" fill="#666"/>
+    <path d="M461 95h21m11 0h21m11 0h21" stroke="#888" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="301" cy="155" r="20" fill="#f5f5f5"/>
+    <circle cx="301" cy="150" r="6" fill="#333"/><path d="M290 168c1-15 21-15 22 0" fill="#333"/>
+    <path d="M337 145h129" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+    <path d="M337 163h76" stroke="#888" stroke-width="3" stroke-linecap="round"/>
+    <path d="M282 195h226M282 208h195M282 221h149" stroke="#a1a1a1" stroke-width="3" stroke-linecap="round"/>
+    <rect x="282" y="246" width="122" height="61" rx="4" fill="#f4f4f4"/>
+    <path d="M295 261h45M295 276h92M295 289h65" stroke="#666" stroke-width="3" stroke-linecap="round"/>
+    <rect x="418" y="246" width="122" height="61" rx="4" stroke="#777"/>
+    <path d="M432 261h45M432 276h92M432 289h65" stroke="#bcbcbc" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <path d="m528 301 5 52 13-14 16 23 11-8-16-23 19-7-48-23Z" fill="#fff" stroke="#111" stroke-width="2.7" stroke-linejoin="round"/>
+  <path d="M514 293l-10-4m24-3v-10m13 13 6-9" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+  <path d="M62 373h54M528 49h45" stroke="#8c8c8c" stroke-width="1.5"/>
+</svg>

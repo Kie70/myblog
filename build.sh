@@ -1,18 +1,16 @@
 #!/usr/bin/env bash
-# Build Hugo for both Vercel and Cloudflare Pages (correct baseURL per platform)
+# Build with the deployment's public URL; keep Vercel analytics off other hosts.
+set -euo pipefail
 
-set -e
-
-if [ -n "$CF_PAGES_URL" ]; then
-  # Cloudflare Pages: CF_PAGES_URL is the full deployment URL
-  BASE="${CF_PAGES_URL%/}"
-  export HUGO_BASEURL="${BASE}/"
-elif [ -n "$VERCEL_URL" ]; then
-  # Vercel: VERCEL_URL is hostname only
-  export HUGO_BASEURL="https://${VERCEL_URL}/"
-else
-  # Local or fallback: use hugo.toml default
-  export HUGO_BASEURL="https://myblog.vercel.app/"
+if [ "${VERCEL:-}" = "1" ]; then
+  export HUGO_PARAMS_VERCELANALYTICS=true
+  if [ "${VERCEL_ENV:-}" = "production" ]; then
+    export HUGO_BASEURL="https://${VERCEL_PROJECT_PRODUCTION_URL:-myblog-snowy-three.vercel.app}/"
+  else
+    export HUGO_BASEURL="https://${VERCEL_URL}/"
+  fi
+elif [ -n "${CF_PAGES_URL:-}" ]; then
+  export HUGO_BASEURL="${CF_PAGES_URL%/}/"
 fi
 
-hugo --minify --baseURL="$HUGO_BASEURL"
+hugo --minify

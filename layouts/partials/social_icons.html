@@ -20,7 +20,7 @@
     <form method="dialog">
         <button class="social-card-close" type="submit" aria-label="关闭小红书名片" autofocus>&times;</button>
     </form>
-    <img src="{{ "/images/xiaohongshu-card.jpg" | relURL }}" alt="鱼的小红书账号名片，小红书号49753033127，包含可扫描的二维码" width="987" height="1347" loading="lazy">
+    <img src="{{ "/images/xiaohongshu-card.jpg" | strings.TrimPrefix "/" | relURL }}" alt="鱼的小红书账号名片，小红书号49753033127，包含可扫描的二维码" width="987" height="1347" loading="lazy">
 </dialog>
 
 <!-- WeChat Modal -->
@@ -28,7 +28,7 @@
     <div class="contact-modal-content wechat-modal-content">
         <span class="contact-close" onclick="closeWechatModal()">&times;</span>
         <h3>我的微信号</h3>
-        <img src="/images/我的微信号.jpg" alt="我的微信号" class="wechat-qrcode">
+        <img src="{{ "/images/我的微信号.jpg" | strings.TrimPrefix "/" | relURL }}" alt="我的微信号" class="wechat-qrcode">
         <p class="contact-hint">扫码添加微信或搜索：ugniop</p>
     </div>
 </div>

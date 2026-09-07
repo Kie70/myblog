@@ -69,3 +69,9 @@ git push origin main
 - 检查文件扩展名是否为 `.md` 或 `.markdown`
 - 检查 front matter 中 `draft` 是否为 `false`
 - 检查 `date` 格式是否正确
+
+## 字体与首页后台预取
+
+Noto Serif SC 随网站托管于 `static/fonts/noto-serif-sc/`，不请求 Google 字体服务。首页使用约 106 KB 的精简字形包，其余文字按需使用本地分片；字体未到达时先显示后备字体。字体文件名包含内容哈希，Vercel 和 Cloudflare 的字体缓存配置可安全缓存一年。来源、许可证和可选的精简字形更新步骤见该目录的 `SOURCE.md`。
+
+首页先完成资源加载并获得绘制机会，然后在浏览器空闲时预取 `/archives/`、`/profile/`、`/projects/` 三个页面的 HTML。不会预加载全部文章正文，也不会执行目标页面脚本或下载目标页面图片。支持的浏览器使用 Speculation Rules；其余支持预取的浏览器使用低优先级 `link rel=prefetch`。未支持预取、离线、后台页面、开启省流或慢速网络时保留正常链接访问。预取是浏览器可选择执行的优化，实际缓存复用受浏览器和网络策略影响。

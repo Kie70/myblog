@@ -7,7 +7,7 @@
     {{- range site.Data.projects }}
     <a class="projects-card" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
       <div class="projects-card-image">
-        <img class="project-cover-img" src="{{ .image | relURL }}" alt="{{ .name }}" loading="lazy">
+        <img class="project-cover-img" src="{{ .image | strings.TrimPrefix "/" | relURL }}" alt="{{ .name }}" loading="lazy">
       </div>
       <div class="projects-card-content">
         <h2 class="project-title">{{ .name }}</h2>

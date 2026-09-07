@@ -1,0 +1,7 @@
+# Fill in url when the skill is ready; the card then becomes a working link.
+# Add another item below to publish the next card.
+- name: "做网页"
+  image: "/images/skills/make-websites-mono.svg"
+  image_alt: "黑白线框草图与个人网页，表现从设计到建站的过程"
+  description: "把搭建这个博客的经验，整理成可复用的建站Skill"
+  url: "https://github.com/Kie70/personal-site-builder"

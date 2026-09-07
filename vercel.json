@@ -1,4 +1,18 @@
 {
-  "buildCommand": "hugo --minify --baseURL=https://$VERCEL_URL/",
-  "outputDirectory": "public"
+  "buildCommand": "bash build.sh",
+  "outputDirectory": "public",
+  "headers": [
+    {
+      "source": "/fonts/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "env": {
+    "HUGO_VERSION": "0.158.0"
+  }
 }
