@@ -39,6 +39,4 @@ description: "记一次猎豹移动 AI 少年派黑客松：个人赛做了个�
 
 ![赛后访谈现场](/images/cheetah-hackathon-interview.jpg)
 
-![个人赛领奖](/images/cheetah-hackathon-award-individual.jpg)
-
 两天下来感受最深的一点：一个人扛 5 分钟和一群人扛 15 分钟，是两种完全不同的累，也是两种完全不同的爽。
