@@ -1,0 +1,3 @@
+<img class="project-cover-img" src="{{ .image | strings.TrimPrefix "/" | relURL }}" alt="{{ .name }}" loading="lazy" width="640" height="360"
+  {{- with .scrollFrames }} data-scroll-frame-count="{{ . }}"{{ end }}
+  {{- with .scrollFramePrefix }} data-scroll-frame-prefix="{{ . | strings.TrimPrefix "/" | relURL }}"{{ end }}>

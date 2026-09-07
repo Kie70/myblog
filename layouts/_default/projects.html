@@ -5,9 +5,9 @@
   </header>
   <div class="projects-list">
     {{- range site.Data.projects }}
-    <a class="projects-card" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+    <a class="projects-card" href="{{ if hasPrefix .url "/" }}{{ .url | strings.TrimPrefix "/" | relURL }}{{ else }}{{ .url }}{{ end }}" target="_blank" rel="noopener noreferrer">
       <div class="projects-card-image">
-        <img class="project-cover-img" src="{{ .image | strings.TrimPrefix "/" | relURL }}" alt="{{ .name }}" loading="lazy">
+        {{ partial "project-cover.html" . }}
       </div>
       <div class="projects-card-content">
         <h2 class="project-title">{{ .name }}</h2>

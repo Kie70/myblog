@@ -21,6 +21,11 @@
 {{- end }}
 
 {{- /* Custom CSS */ -}}
+{{- if or .IsHome (eq .Layout "projects") }}
+{{- $projectScroll := resources.Get "js/project-scroll.js" | minify | fingerprint }}
+<script defer src="{{ $projectScroll.RelPermalink }}" integrity="{{ $projectScroll.Data.Integrity }}"></script>
+{{- end }}
+
 {{- $custom := resources.Get "css/custom.css" -}}
 {{- if $custom }}
 {{- $custom = $custom | minify | fingerprint }}

@@ -24,6 +24,16 @@
 
 兼容原有配置：构建命令 `bash build.sh`，输出目录 `public`，根目录留空。使用 `CF_PAGES_URL` 作为该次构建地址。
 
-## 本地检查
+## 《填塞物》作品
+
+首页精选项目与项目页均从 `data/projects.yaml` 读取，按列表顺序展示。《填塞物》位于第一项，链接至站内 `/experiments/the-filling/`，兼容 GitHub Pages 的 `/myblog/` 前缀。
+
+完整作品以静态构建产物保存在 `static/experiments/the-filling/`。源码仓库为 https://github.com/Kie70/the-filling ，当前同步版本为 `d9b5733fd019b70741c5a3919840d4078c44a3fb`。更新作品时，在源码仓库运行 `npm ci` 和 `npm run build -- --base=./`，再将 `dist/` 内容同步到此目录；只推送作品源码仓库不会更新博客内的副本。
+
+项目封面来自 `exports/filling-88-95-cycle.mp4`，即页面滚动进度 88–95 / 100 的往返片段，提取为 `static/images/the-filling/frame-01.webp` 至 `frame-24.webp`（640 × 360）。`assets/js/project-scroll.js` 将每 280px 页面滚动映射到一次循环，停止滚动即定格；接近视口时加载帧，减少动态效果模式保留静态封面。
+
+这些静态文件随本仓库的 GitHub Pages 与 Vercel 自动部署发布，无需其他托管服务。
+
+## 本地构建验证
 
 运行 `hugo --minify`。验证 GitHub Pages 路径时可运行 `hugo --minify --baseURL https://kie70.github.io/myblog/ --destination <临时目录>`。正常部署只需要 Hugo，字体维护脚本不是构建依赖。
