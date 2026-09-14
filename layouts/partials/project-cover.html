@@ -1,3 +1,9 @@
+{{- if .interactiveRobot }}
+<span class="robot-pixel-cover" data-robot-pixel data-robot-background="{{ "images/robot-pixel-background.png" | relURL }}">
+  <img class="project-cover-img robot-pixel-fallback" src="{{ .image | strings.TrimPrefix "/" | relURL }}" alt="{{ .name }}" loading="lazy" width="640" height="360">
+</span>
+{{- else }}
 <img class="project-cover-img{{ if .containImage }} project-cover-contain{{ end }}" src="{{ .image | strings.TrimPrefix "/" | relURL }}" alt="{{ .name }}" loading="lazy" width="640" height="360"
   {{- with .scrollFrames }} data-scroll-frame-count="{{ . }}"{{ end }}
   {{- with .scrollFramePrefix }} data-scroll-frame-prefix="{{ . | strings.TrimPrefix "/" | relURL }}"{{ end }}>
+{{- end }}

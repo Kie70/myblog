@@ -12,7 +12,7 @@
   image: "/images/narratoai.png"
   description: "利用 AI 大模型，一键生成影视解说文案并自动化剪辑视频、配音与字幕的全流程内容创作工具。"
 - name: "纸上有光"
-  featured: true
+  featured: false
   url: "https://kie70.github.io/paper-light-card-exhibition/"
   image: "/images/paper-light.png"
   description: "面向设计初学者与创意开发者的微型参考博物馆：把抽象的“设计感”，还原为可观察、运行的真实比例、材质与纯 CSS 交互。"
@@ -34,7 +34,8 @@
   image: "/images/shomi-tonkotsu-ramen.png"
   description: "以十五帧横向滑动分镜，呈现一碗豚骨拉面的赏味过程。在面条、溏心蛋、叉烧与最后一口汤之间，感受风味与身体状态的变化。"
 - name: "小豹待机表情 · Robot Face Design"
-  featured: false
+  featured: true
+  interactiveRobot: true
   url: "https://kie70.github.io/Robot-face-design/"
   image: "/images/robot-face-design.png"
   containImage: true

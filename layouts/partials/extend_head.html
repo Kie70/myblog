@@ -40,3 +40,14 @@
 }
 </style>
 {{- end }}
+
+{{- if or .IsHome (eq .Layout "projects") }}
+{{- with resources.Get "js/robot-pixel.js" }}
+{{- $robotScript := . | js.Build (dict "targetPath" "js/robot-pixel.js" "minify" true) | fingerprint }}
+<script defer src="{{ $robotScript.RelPermalink }}" integrity="{{ $robotScript.Data.Integrity }}"></script>
+{{- end }}
+{{- with resources.Get "css/robot-pixel.css" }}
+{{- $robotStyle := . | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $robotStyle.RelPermalink }}" integrity="{{ $robotStyle.Data.Integrity }}">
+{{- end }}
+{{- end }}
