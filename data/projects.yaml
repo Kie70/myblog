@@ -4,7 +4,7 @@
   image: "/images/the-filling/frame-01.webp"
   scrollFrames: 24
   scrollFramePrefix: "/images/the-filling/frame-"
-  description: "以诡异教室为开端的心理恐怖叙事实验：滚动推进画面，在文字、影像与环境声之间，逐步揭开《填塞物》的故事。"
+  description: "以诡异教室为开端的微恐故事：滚动推进画面，在文字、影像与环境声之间，逐步揭开《填塞物》的故事。"
 - name: "Narrato AI"
   featured: false
   homeName: "NarratoAI"
@@ -33,10 +33,10 @@
   url: "https://kie70.github.io/shomi-tonkotsu-ramen/?transition=shoji#top"
   image: "/images/shomi-tonkotsu-ramen.png"
   description: "以十五帧横向滑动分镜，呈现一碗豚骨拉面的赏味过程。在面条、溏心蛋、叉烧与最后一口汤之间，感受风味与身体状态的变化。"
-- name: "小豹待机表情 · Robot Face Design"
+- name: "桌宠"
   featured: true
   interactiveRobot: true
   url: "https://kie70.github.io/Robot-face-design/"
   image: "/images/robot-face-design.png"
   containImage: true
-  description: "为接待机器人设计的待机表情动画，包含像素、Air、动漫深瞳与可爱风四个视觉方向。表情由纯代码绘制，可切换互动，并打包为独立 Android 应用。"
+  description: "为桌宠设计的表情动画，表情由纯代码绘制，可切换互动，并打包为 Android 应用。"
