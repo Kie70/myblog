@@ -212,10 +212,11 @@ const quant = (t, n) => Math.min(n - 1, Math.max(0, Math.round(clamp01(t) * (n -
 /* ═══════════ 出图 ═══════════ */
 
 let imgData = null, buf32 = null;
+let edgePixels = null;
+const FACE_RESOLUTION = 2;
 
 /**
- * 把索引缓冲刷到 2D context。ctx 的画布必须正好是 LW×LH，
- * 放大交给 CSS（image-rendering: pixelated）或外层整数倍 drawImage。
+ * 表情使用 2x 边缘重建输出，保留调色板与细节，不使用模糊滤镜。
  */
   function hillTop(x, off, halfWidth, peak, base) {
     const d = Math.min(Math.abs(x - off), Math.abs(x - (LW - 1 - off)));
@@ -224,7 +225,8 @@ let imgData = null, buf32 = null;
   }
 function present(ctx) {
   if (!imgData) {
-    imgData = ctx.createImageData(LW, LH);
+    imgData = ctx.createImageData(LW * FACE_RESOLUTION, LH * FACE_RESOLUTION);
+    edgePixels = new Uint8Array(LW * LH * 4);
     buf32 = new Uint32Array(imgData.data.buffer);
   }
   // Enlarge only the expression by 25%, around its stable face anchor.
@@ -255,13 +257,33 @@ function present(ctx) {
     offsetY = Math.max(36 - (pivotY + (minY - pivotY) * scale),
       Math.min(offsetY, skyBottom - (pivotY + (maxY + 1 - pivotY) * scale)));
   }
+  // Edge-directed 2x reconstruction preserves palette colors and sharp highlights.
+  // It refines stair-step corners rather than blurring the complete expression.
+  const outputWidth = LW * FACE_RESOLUTION, outputHeight = LH * FACE_RESOLUTION;
+  edgePixels.fill(255);
+  for (let y = Math.max(0, minY - 1); y <= Math.min(LH - 1, maxY + 1); y++) {
+    for (let x = Math.max(0, minX - 1); x <= Math.min(LW - 1, maxX + 1); x++) {
+      const i = y * LW + x, e = FB[i];
+      const b = y > 0 ? FB[i - LW] : e, h = y + 1 < LH ? FB[i + LW] : e;
+      const d = x > 0 ? FB[i - 1] : e, f = x + 1 < LW ? FB[i + 1] : e;
+      const out = y * 2 * outputWidth + x * 2;
+      edgePixels[out] = d === b && d !== h && b !== f ? d : e;
+      edgePixels[out + 1] = b === f && b !== d && f !== h ? f : e;
+      edgePixels[out + outputWidth] = d === h && d !== b && h !== f ? d : e;
+      edgePixels[out + outputWidth + 1] = h === f && d !== h && b !== f ? f : e;
+    }
+  }
   buf32.fill(0);
-  for (let y = 0; y < LH; y++) {
-    const sy = Math.floor((y - pivotY - offsetY) / scale + pivotY);
-    if (sy < 0 || sy >= LH) continue;
-    for (let x = 0; x < LW; x++) {
-      const sx = Math.floor((x - pivotX - offsetX) / scale + pivotX);
-      if (sx >= 0 && sx < LW) buf32[y * LW + x] = ABGR[FB[sy * LW + sx]];
+  const startY = Math.max(0, Math.floor((pivotY + (minY - pivotY) * scale + offsetY) * 2));
+  const endY = Math.min(outputHeight, Math.ceil((pivotY + (maxY + 1 - pivotY) * scale + offsetY) * 2));
+  const startX = Math.max(0, Math.floor((pivotX + (minX - pivotX) * scale + offsetX) * 2));
+  const endX = Math.min(outputWidth, Math.ceil((pivotX + (maxX + 1 - pivotX) * scale + offsetX) * 2));
+  for (let y = startY; y < endY; y++) {
+    const sy = Math.floor(((y / 2 - pivotY - offsetY) / scale + pivotY) * 2);
+    if (sy < 0 || sy >= outputHeight) continue;
+    for (let x = startX; x < endX; x++) {
+      const sx = Math.floor(((x / 2 - pivotX - offsetX) / scale + pivotX) * 2);
+      if (sx >= 0 && sx < outputWidth) buf32[y * outputWidth + x] = ABGR[edgePixels[sy * outputWidth + sx]];
     }
   }
   ctx.putImageData(imgData, 0, 0);
@@ -1062,7 +1084,7 @@ const Director = (function () {
   /* 平铺成同长数组而不是对象数组：Kotlin 侧就是几个 IntArray，
      不用为九个节拍造一个 data class。列顺序 = 上面那组常量的顺序 */
   /*                idle blink dbl  look  wink happy star  doze */
-  const WEIGHT = [    34,  30,  10,   28,    5,    5,    2,    2];
+  const WEIGHT = [    62,  30,  10,    0,    5,    5,    2,    2]; // No autonomous look-around.
   const COOL   = [     0,1600,9000, 2500,18000,20000,45000,60000];
   /* DMIN/DMAX 是**基准**时长，实际时长 = 基准 × STRETCH */
   const DMIN   = [  1400, 190, 430, 1400,  900, 1600, 2200, 3000];
@@ -1110,7 +1132,7 @@ const Director = (function () {
       /* 三条排除规则：冷却没走完 / 和上一拍重样 / idle 后面必须换非 idle
          （后两条在 idle 上其实是同一条，分开写是为了对齐需求，
            以后若放宽「不得连抽」也不会顺手把 idle 连播放出来） */
-      const ok = cool[i] <= 0 && i !== cur && !(cur === B_IDLE && i === B_IDLE);
+      const ok = WEIGHT[i] > 0 && cool[i] <= 0 && i !== cur && !(cur === B_IDLE && i === B_IDLE);
       elig[i] = ok ? 1 : 0;
       if (ok) total += WEIGHT[i];
     }
@@ -1119,7 +1141,7 @@ const Director = (function () {
          宁可某个节拍早了几百毫秒，也不能出现「一动不动」 */
       let best = -1, bestCool = 1e9;
       for (let i = 0; i < N_BEAT; i++) {
-        if (i === cur) continue;
+        if (i === cur || WEIGHT[i] <= 0) continue;
         if (cool[i] < bestCool) { bestCool = cool[i]; best = i; }
       }
       return best < 0 ? B_BLINK : best;
@@ -1459,8 +1481,8 @@ const Director = (function () {
        幅度都压在 1px 以内：正弦在峰值附近走得最慢，取整后会「停住 1px」
        再跳回来 —— 是干净的一步位移，不是逐帧抖动 */
     pose.head.y += sinP(phBreath, T_BREATH);
-    pose.head.x += sinP(phSway, T_SWAY) * 0.55;
-    gazeAdd(sinP(phGX1, T_GAZE_X1) * 0.55 + sinP(phGX2, T_GAZE_X2) * 0.30,
+    // Horizontal movement is controlled by the pointer, not autonomous swaying.
+    gazeAdd(0,
             sinP(phGY1, T_GAZE_Y1) * 0.40 + sinP(phGY2, T_GAZE_Y2) * 0.22);
 
     /* 开合在这一层就量化成 5 档（需求 §1.5：形状类状态不做连续形变），
@@ -1469,8 +1491,8 @@ const Director = (function () {
     pose.eyeR.open = quant(pose.eyeR.open, 5) / 4;
     pose.t = t;
     pose.expression = BEAT_NAMES[cur];
-    // Preserve authored expressions: only idle and looking beats accept a little pointer influence.
-    pose.pointerWeight = cur === B_IDLE ? 0.65 : cur === B_LOOK ? 0.3 : 0;
+    // Preserve authored expressions: only idle beats accept pointer gaze influence.
+    pose.pointerWeight = cur === B_IDLE ? 0.65 : 0;
 
     if (typeof Fx !== 'undefined' && Fx && Fx.update) Fx.update(pose.fx, dt);
     /* 常驻 7×24，粒子表哪怕漏回收一颗也会攒成内存泄漏。留个硬上限兜底 */
@@ -1484,7 +1506,7 @@ const Director = (function () {
 
   setLogicalWidth(267);
   const canvas = document.createElement('canvas');
-  canvas.width = LW; canvas.height = LH;
+  canvas.width = LW * FACE_RESOLUTION; canvas.height = LH * FACE_RESOLUTION;
   canvas.className = 'robot-pixel-face';
   canvas.setAttribute('aria-hidden', 'true');
   const context = canvas.getContext('2d', { alpha: true });

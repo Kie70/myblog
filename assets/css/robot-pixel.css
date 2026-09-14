@@ -26,8 +26,7 @@
   visibility: hidden;
 }
 
-/* Smooth only the enlarged face; retain crisp pixels in the scenery. */
+/* High-resolution expression canvas; no blur filters. */
 .robot-pixel-cover .robot-pixel-face {
   image-rendering: auto;
-  filter: blur(0.35px);
 }
