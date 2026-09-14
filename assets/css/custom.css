@@ -696,7 +696,6 @@ body:has(.skills-page) { font-family: var(--font-serif); }
   padding-bottom: 64px;
   font-family: var(--font-serif);
 }
-.skills-header { margin-bottom: 36px; }
 .skills-list { display: flex; flex-direction: column; }
 .skill-row {
   display: flex;
@@ -715,6 +714,5 @@ a.skill-row:hover .archive-entry-title { text-decoration: underline; text-underl
 a.skill-row:focus-visible { outline: 2px solid var(--primary); outline-offset: 4px; }
 @media (max-width: 640px) {
   .skills-page { padding-top: 12px; }
-  .skills-header { margin-bottom: 28px; }
   .skill-row { gap: 12px; }
 }

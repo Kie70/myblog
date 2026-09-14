@@ -1,8 +1,5 @@
 {{- define "main" }}
 <section class="projects-page">
-  <header class="page-header">
-    <h1>{{ .Title }}</h1>
-  </header>
   <div class="projects-list">
     {{- range site.Data.projects }}
     <a class="projects-card" href="{{ if hasPrefix .url "/" }}{{ .url | strings.TrimPrefix "/" | relURL }}{{ else }}{{ .url }}{{ end }}" target="_blank" rel="noopener noreferrer">

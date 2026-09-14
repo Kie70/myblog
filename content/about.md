@@ -1,5 +1,6 @@
 ---
 title: "关于我"
+hideHeader: true
 summary: "好的让我们看文字"
 ---
 
