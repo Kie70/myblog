@@ -33,3 +33,9 @@
   url: "https://kie70.github.io/shomi-tonkotsu-ramen/?transition=shoji#top"
   image: "/images/shomi-tonkotsu-ramen.png"
   description: "以十五帧横向滑动分镜，呈现一碗豚骨拉面的赏味过程。在面条、溏心蛋、叉烧与最后一口汤之间，感受风味与身体状态的变化。"
+- name: "小豹待机表情 · Robot Face Design"
+  featured: false
+  url: "https://kie70.github.io/Robot-face-design/"
+  image: "/images/robot-face-design.png"
+  containImage: true
+  description: "为接待机器人设计的待机表情动画，包含像素、Air、动漫深瞳与可爱风四个视觉方向。表情由纯代码绘制，可切换互动，并打包为独立 Android 应用。"
