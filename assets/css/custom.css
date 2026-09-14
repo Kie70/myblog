@@ -716,3 +716,5 @@ a.skill-row:focus-visible { outline: 2px solid var(--primary); outline-offset: 4
   .skills-page { padding-top: 12px; }
   .skill-row { gap: 12px; }
 }
+
+.project-cover-img.project-cover-contain { object-fit: contain; background: #000; }

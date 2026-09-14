@@ -13,6 +13,12 @@
   description: "利用 AI 大模型，一键生成影视解说文案并自动化剪辑视频、配音与字幕的全流程内容创作工具。"
 - name: "纸上有光"
   featured: true
-  url: "https://github.com/Kie70/paper-light-card-exhibition"
+  url: "https://kie70.github.io/paper-light-card-exhibition/"
   image: "/images/paper-light.png"
   description: "面向设计初学者与创意开发者的微型参考博物馆：把抽象的“设计感”，还原为可观察、运行的真实比例、材质与纯 CSS 交互。"
+- name: "Pipboy web"
+  featured: false
+  url: "https://kie70.github.io/pipboy-viewer/"
+  image: "/images/pipboy-web.png"
+  containImage: true
+  description: "利用 Astra 构建的3D 可交互的辐射游戏道具,可填入个人简历用于网站建设"
