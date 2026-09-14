@@ -25,3 +25,9 @@
 .robot-pixel-cover.robot-pixel-ready .robot-pixel-fallback {
   visibility: hidden;
 }
+
+/* Smooth only the enlarged face; retain crisp pixels in the scenery. */
+.robot-pixel-cover .robot-pixel-face {
+  image-rendering: auto;
+  filter: blur(0.35px);
+}
