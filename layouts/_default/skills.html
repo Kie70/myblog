@@ -2,6 +2,9 @@
 <section class="skills-page">
   <div class="skills-list">
     {{- range site.Data.skills }}
+    {{- if not .date }}
+      {{- errorf "Skill %q is missing its blog listing date. Add date: YYYY-MM-DD to data/skills.yaml or use scripts/add-skill.py." .name }}
+    {{- end }}
     {{- if .url }}
     <a class="skill-row" href="{{ .url | strings.TrimPrefix "/" | relURL }}">
     {{- else }}
