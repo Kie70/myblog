@@ -217,12 +217,53 @@ let imgData = null, buf32 = null;
  * 把索引缓冲刷到 2D context。ctx 的画布必须正好是 LW×LH，
  * 放大交给 CSS（image-rendering: pixelated）或外层整数倍 drawImage。
  */
+  function hillTop(x, off, halfWidth, peak, base) {
+    const d = Math.min(Math.abs(x - off), Math.abs(x - (LW - 1 - off)));
+    if (d >= halfWidth) return base;
+    return base - Math.round((base - peak) * 0.5 * (1 + Math.cos(Math.PI * d / halfWidth)) * 0.5) * 2;
+  }
 function present(ctx) {
   if (!imgData) {
     imgData = ctx.createImageData(LW, LH);
     buf32 = new Uint32Array(imgData.data.buffer);
   }
-  for (let i = 0, n = LW * LH; i < n; i++) buf32[i] = ABGR[FB[i]];
+  // Enlarge only the expression by 25%, around its stable face anchor.
+  // Clamp the complete animated silhouette into the clear sky (clouds end at y=34,
+  // the hill boundary is evaluated underneath the whole face). No extra canvas is allocated.
+  const scale = 1.25, pivotX = LW / 2, pivotY = 80;
+  let minX = LW, maxX = -1, minY = LH, maxY = -1;
+  for (let y = 0; y < LH; y++) {
+    for (let x = 0; x < LW; x++) {
+      if (FB[y * LW + x] === 255) continue;
+      if (x < minX) minX = x;
+      if (x > maxX) maxX = x;
+      if (y < minY) minY = y;
+      if (y > maxY) maxY = y;
+    }
+  }
+  let offsetX = 0, offsetY = 8;
+  let skyBottom = 124;
+  if (maxX >= 0) {
+    offsetX = Math.max(4 - (pivotX + (minX - pivotX) * scale),
+      Math.min(offsetX, LW - 4 - (pivotX + (maxX + 1 - pivotX) * scale)));
+    const left = Math.floor(pivotX + (minX - pivotX) * scale + offsetX);
+    const right = Math.ceil(pivotX + (maxX + 1 - pivotX) * scale + offsetX);
+    for (let x = left; x <= right; x++) {
+      skyBottom = Math.min(skyBottom, hillTop(x, 32, 54, 110, 124) - 2,
+        hillTop(x, 18, 62, 116, 128) - 2);
+    }
+    offsetY = Math.max(36 - (pivotY + (minY - pivotY) * scale),
+      Math.min(offsetY, skyBottom - (pivotY + (maxY + 1 - pivotY) * scale)));
+  }
+  buf32.fill(0);
+  for (let y = 0; y < LH; y++) {
+    const sy = Math.floor((y - pivotY - offsetY) / scale + pivotY);
+    if (sy < 0 || sy >= LH) continue;
+    for (let x = 0; x < LW; x++) {
+      const sx = Math.floor((x - pivotX - offsetX) / scale + pivotX);
+      if (sx >= 0 && sx < LW) buf32[y * LW + x] = ABGR[FB[sy * LW + sx]];
+    }
+  }
   ctx.putImageData(imgData, 0, 0);
 }
 
@@ -1457,6 +1498,7 @@ const Director = (function () {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   let visible = false, destroyed = false, raf = 0, last = 0;
   let pointerX = 0, pointerY = 0, tracking = 0, mix = 0;
+  let headMix = 0;
   let gazeX = 0, gazeY = 0, rectCache = null, pointerListening = false;
   const frameInterval = 1000 / 30;
   let backgroundReady = false, firstFrame = false;
@@ -1505,6 +1547,10 @@ const Director = (function () {
       gazeX += (pointerX - gazeX) * blend;
       gazeY += (pointerY - gazeY) * blend;
       mix += (tracking * pose.pointerWeight - mix) * blend;
+      headMix += (tracking - headMix) * blend;
+      // Translate eyes, mouth and cheeks together; retain the director's own motion.
+      pose.head.x += gazeX * headMix * 0.85;
+      pose.head.y += gazeY * headMix * 0.45;
       // The original director retains control of blinks, smiles, head movement and mood.
       // Suppress pointer influence immediately during expressive beats, then ease it back in.
       const weight = Math.min(mix, pose.pointerWeight);
