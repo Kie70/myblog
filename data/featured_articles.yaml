@@ -1,0 +1,4 @@
+# Select original articles by content path, in display order.
+# Titles, dates and URLs are read directly from the article.
+- /posts/cheetah-ai-hackathon
+- /thinking/giving-up-oi-early

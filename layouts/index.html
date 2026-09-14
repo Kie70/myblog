@@ -41,14 +41,16 @@
       <a href="{{ "/archives/" | strings.TrimPrefix "/" | relLangURL }}" class="section-link">进入文章归档 &rarr;</a>
     </div>
     <div class="post-list">
-      <a href="{{ "/posts/cheetah-ai-hackathon/" | strings.TrimPrefix "/" | relLangURL }}" class="post-card-item">
-        <span class="post-card-title">Cheetah AI 黑客松参赛总结与多智能体实战</span>
-        <span class="post-card-date">2026年2月</span>
+      {{- range site.Data.featured_articles }}
+      {{- with site.GetPage . }}
+      <a href="{{ .RelPermalink }}" class="post-card-item">
+        <span class="post-card-title">{{ .Title }}</span>
+        <time class="post-card-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年1月" }}</time>
       </a>
-      <a href="{{ "/posts/kaggle-minimind-training/" | strings.TrimPrefix "/" | relLangURL }}" class="post-card-item">
-        <span class="post-card-title">从零开始训练一个轻量级大语言模型 (MiniMind)</span>
-        <span class="post-card-date">2026年1月</span>
-      </a>
+      {{- else }}
+        {{- errorf "Featured article not found: %s" . }}
+      {{- end }}
+      {{- end }}
     </div>
   </section>
 

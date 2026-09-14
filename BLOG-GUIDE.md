@@ -96,3 +96,10 @@ python3 scripts/add-skill.py --name "Skill 名称" --url "https://github.com/用
 - 字体统一由 `assets/css/custom.css` 的 `--font-serif` 控制，不再混用系统无衬线或等宽字体。
 - Skills 条目标题、文章归档条目标题与关于页正文共用 `--font-size-list-title: 1rem`。关于页正文保留正文字重和行距，其他文章详情正文大小不受影响。
 - 项目封面内的文字、嵌入的独立作品不属于博客文字样式，不随此规则替换。
+
+
+## 首页精选文章
+
+在 `data/featured_articles.yaml` 中按展示顺序填写原文章路径。
+首页直接读取原文章的标题、发布日期和链接，不另起标题，不手写日期，也不复制文章内容。
+替换精选只需修改路径；若路径无效，构建会报错，避免发布失效入口。
