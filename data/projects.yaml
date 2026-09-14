@@ -33,7 +33,7 @@
   url: "https://kie70.github.io/shomi-tonkotsu-ramen/?transition=shoji#top"
   image: "/images/shomi-tonkotsu-ramen.png"
   description: "以十五帧横向滑动分镜，呈现一碗豚骨拉面的赏味过程。在面条、溏心蛋、叉烧与最后一口汤之间，感受风味与身体状态的变化。"
-- name: "桌宠"
+- name: "像素桌宠"
   featured: true
   interactiveRobot: true
   url: "https://kie70.github.io/Robot-face-design/"
