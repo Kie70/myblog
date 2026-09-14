@@ -88,3 +88,11 @@ python3 scripts/add-skill.py --name "Skill 名称" --url "https://github.com/用
 可用 `--dry-run` 先查看条目；补录历史条目时使用 `--date YYYY-MM-DD`。
 直接编辑 `data/skills.yaml` 时也必须填写 `date`，缺失会导致 Hugo 构建报错，以免漏掉日期。
 「做网页」保留原先指定的 2026-09-01；「3D 收藏卡」记录本次加入日期 2026-09-14。
+
+
+## 字体与字号规则
+
+- 博客页面统一使用本地加载的 **Noto Serif SC**，涵盖首页、文章归档及详情、项目、Skills、关于、导航、页脚和联系弹窗。`serif` 仅作为字体未加载时的后备。
+- 字体统一由 `assets/css/custom.css` 的 `--font-serif` 控制，不再混用系统无衬线或等宽字体。
+- Skills 条目标题、文章归档条目标题与关于页正文共用 `--font-size-list-title: 1rem`。关于页正文保留正文字重和行距，其他文章详情正文大小不受影响。
+- 项目封面内的文字、嵌入的独立作品不属于博客文字样式，不随此规则替换。

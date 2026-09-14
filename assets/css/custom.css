@@ -3,7 +3,17 @@
    ============================================ */
 
 :root {
-  --font-serif: 'Noto Serif SC', 'Source Han Serif SC', 'SimSun', serif;
+  --font-serif: 'Noto Serif SC', serif;
+  --font-size-list-title: 1rem;
+}
+
+/* All blog text uses the same family, including controls and code. */
+body, button, input, select, textarea, code, pre, kbd, samp {
+  font-family: var(--font-serif);
+}
+
+.about-page .post-content {
+  font-size: var(--font-size-list-title);
 }
 
 /* Shared near-black surfaces for every page in dark mode. */
@@ -149,7 +159,7 @@
 }
 
 .archive-entry-title {
-  font-size: 1rem;
+  font-size: var(--font-size-list-title);
   font-weight: 500;
   margin: 0 0 0.2em 0;
 }

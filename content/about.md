@@ -1,6 +1,7 @@
 ---
 title: "关于我"
 hideHeader: true
+pageClass: "about-page"
 summary: "好的让我们看文字"
 ---
 

@@ -1,6 +1,6 @@
 {{- define "main" }}
 
-<article class="post-single">
+<article class="post-single{{ with .Params.pageClass }} {{ . }}{{ end }}">
   {{- if not (.Param "hideHeader") }}
   <header class="post-header">
     {{ partial "breadcrumbs.html" . }}
