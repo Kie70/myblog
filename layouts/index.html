@@ -27,8 +27,7 @@
     <div class="bio-text">
       <p>我曾经在“AI少年派黑客松”中获得了第一名并因此在猎豹移动担任产品经理实习生，目前我擅长的是跨团队的工程协作,竞品分析的能力,对于互联网应用类的黑客松我都得心应手</p>
       <p>我认为AI native 的人才需要更多学习基本的工作流程,比如画原型图,比如团队进度的沟通,需求的评审,我曾以为SOTA 模型能够像一个优秀的产品前辈,定义好问题并给我最好的方案,但目前来看这方面还是需要我自己来补齐,改 AI 给我的原型图真是一段痛苦的回忆</p>
-      <p>我很在意审美，也着迷于设计背后的逻辑。无论是体验一款软件的交互，还是打量一本书的装帧，我总会下意识去琢磨：用户究竟为什么会喜欢？细节到底来自哪里？</p>
-      <p>在探索方向的过程中，我曾以为自己会成为一名算法工程师，后来才发现，我更感兴趣的是站在逻辑与美感、技术与用户的交汇处。当然我对于市场和金融也同样感兴趣,但是我目前只会把精力投入到现在最重要的工作上.</p>
+      <p>在探索职业方向的过程中，我曾以为自己会成为一名算法工程师，后来才发现，我更感兴趣的是审美和设计,技术只是帮我实现的手段。当然我对于市场和金融也同样感兴趣,但是我目前只会把精力投入到一件事情</p>
       <p>在互联网之外，我喜欢摄影和写作。对我来说记录是为了把那些模糊的直觉，沉淀成清晰的思考,我经常使用 notion 来记录我每日的想法,有时也会写点文章发到我的社媒.</p>
       <p>目前我在西交利物浦大学读大二，但我经常翘课去探索我觉得有意思的事情,只要无关上学,其他我们都能聊聊</p>
     </div>
@@ -60,7 +59,7 @@
       <a href="{{ "/projects/" | strings.TrimPrefix "/" | relLangURL }}" class="section-link">查看全部项目 &rarr;</a>
     </div>
     <div class="project-horizontal-list">
-      {{- range site.Data.projects }}
+      {{- range where site.Data.projects "featured" true }}
       <a href="{{ if hasPrefix .url "/" }}{{ .url | strings.TrimPrefix "/" | relURL }}{{ else }}{{ .url }}{{ end }}" target="_blank" rel="noopener noreferrer" class="project-card-horizontal">
         <div class="project-card-cover">
           {{ partial "project-cover.html" . }}

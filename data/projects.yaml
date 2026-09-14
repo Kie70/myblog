@@ -1,15 +1,18 @@
 - name: "填塞物 · The Filling"
+  featured: true
   url: "/experiments/the-filling/"
   image: "/images/the-filling/frame-01.webp"
   scrollFrames: 24
   scrollFramePrefix: "/images/the-filling/frame-"
   description: "以诡异教室为开端的心理恐怖叙事实验：滚动推进画面，在文字、影像与环境声之间，逐步揭开《填塞物》的故事。"
 - name: "Narrato AI"
+  featured: false
   homeName: "NarratoAI"
   url: "https://github.com/linyqh/NarratoAI"
   image: "/images/narratoai.png"
   description: "利用 AI 大模型，一键生成影视解说文案并自动化剪辑视频、配音与字幕的全流程内容创作工具。"
 - name: "纸上有光"
+  featured: true
   url: "https://github.com/Kie70/paper-light-card-exhibition"
   image: "/images/paper-light.png"
   description: "面向设计初学者与创意开发者的微型参考博物馆：把抽象的“设计感”，还原为可观察、运行的真实比例、材质与纯 CSS 交互。"
