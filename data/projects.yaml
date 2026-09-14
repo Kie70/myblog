@@ -28,3 +28,8 @@
   image: "/images/duo-holo-card.png"
   containImage: true
   description: "Duo 3D 闪卡,使用skill 可以将单张图片变成3D 的悬浮卡片."
+- name: "赏味 SHŌMI｜豚骨拉面"
+  featured: false
+  url: "https://kie70.github.io/shomi-tonkotsu-ramen/?transition=shoji#top"
+  image: "/images/shomi-tonkotsu-ramen.png"
+  description: "以十五帧横向滑动分镜，呈现一碗豚骨拉面的赏味过程。在面条、溏心蛋、叉烧与最后一口汤之间，感受风味与身体状态的变化。"
