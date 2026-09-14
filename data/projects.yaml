@@ -22,3 +22,9 @@
   image: "/images/pipboy-web.png"
   containImage: true
   description: "利用 Astra 构建的3D 可交互的辐射游戏道具,可填入个人简历用于网站建设"
+- name: "Duo · 满分典藏"
+  featured: false
+  url: "https://kie70.github.io/duo-holo-card/"
+  image: "/images/duo-holo-card.png"
+  containImage: true
+  description: "Duo 3D 闪卡,使用skill 可以将单张图片变成3D 的悬浮卡片."
